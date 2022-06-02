@@ -6,9 +6,7 @@ resource "aws_instance" "INSTANCE_ouadid" {
         instance_type = "t2.micro"
 	user_data = "${file("web_data")}"
 
-	provisioner "local-exec" {
-		command = "echo ${aws_instance.INSTANCE_ouadid.public_ip} > toto"
-	}
+
 
         tags = {
                 Name = "INSTANCE_ouadid"
