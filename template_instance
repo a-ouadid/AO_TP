@@ -1,5 +1,5 @@
 resource "aws_instance" "INSTANCE_ouadid" {
-        key_name = "test_keypair"
+        key_name = "AO_authkey"
         ami = "ami-021d41cbdefc0c994"
         security_groups = ["sg-02ebf81c9fd2d0b68"]
         subnet_id = "subnet-0c59a465aaea21d4a"
