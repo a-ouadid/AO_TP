@@ -7,7 +7,7 @@ resource "aws_instance" "INSTANCE_ouadid" {
 	user_data = "${file("web_data")}"
 	
         provisioner "local-exec" {
-		command = "echo ${aws_instance.INSTANCE_ouadid.public_ip} > toto"
+		command = "echo ${aws_instance.INSTANCE_ouadid.public_ip} > Cipadress"
 	}
 
 
