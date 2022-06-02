@@ -1,15 +1,16 @@
-resource "aws_instance" "ouadid_jenkins_instance" {
-key_name = "test_keypair"
-ami = "ami-021d41cbdefc0c994"
-security_groups = ["sg-02ebf81c9fd2d0b68"]
-subnet_id = "subnet-0c59a465aaea21d4a"
-instance_type = "t2.micro"
-user_data = "<##DATA_USER##>"
-associate_public_ip_address = true 
+resource "aws_instance" "INSTANCE_ouadid" {
+        key_name = "test_keypair"
+        ami = "ami-021d41cbdefc0c994"
+        security_groups = ["sg-02ebf81c9fd2d0b68"]
+        subnet_id = "subnet-0c59a465aaea21d4a"
+        instance_type = "t2.micro"
+	user_data = "${file("web_data")}"
 
+	provisioner "local-exec" {
+		command = "echo ${aws_instance.INSTANCE_ouadid.public_ip} > toto"
+	}
 
-
-tags = {
-Name = "ouadid_jenkins_instance"
-}
+        tags = {
+                Name = "INSTANCE_ouadid"
+        }
 }
